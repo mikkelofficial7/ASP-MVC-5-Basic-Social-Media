@@ -1,0 +1,226 @@
+body {
+  font: "Open Sans", "Roboto", arial, sans-serif;
+  background: #e9e9e9;
+}
+#body-editprofile {
+    background-color: #7d8389;
+}
+a,
+[type="submit"] {
+  -webkit-transition: all .25s ease-in;
+  transition: all .25s ease-in;
+}
+
+.signup__container {
+  margin-top:330px;
+  top: 50%;
+  right: 0;
+  left: 0;
+  margin-right: 10px;
+  margin-left: 0;
+  margin-bottom: -320px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 630px;
+  border-radius: 0.1875rem;
+  box-shadow: 0px 0.1875rem 0.4375rem rgba(0, 0, 0, 0.25);
+}
+
+.signup__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.76);
+}
+
+@media only screen and (min-width: 527px) {
+    .signup__thumbnail {
+        position: relative;
+        padding: 2rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background: url(../img-logo/logo-editprofile.jpg);
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+    }
+    .container__child {
+        width: 50%;
+        height: 100%;
+        color: #fff;
+    }
+}
+
+@media only screen and (max-width: 526px) {
+    .signup__thumbnail {
+        position: relative;
+        padding: 2rem;
+        display: none;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background: url(../img-logo/logo-editprofile.jpg);
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+    }
+    .container__child {
+        height: 100%;
+        width: 100%;
+        color: #fff;
+    }
+}
+
+.thumbnail__logo {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.logo__shape {
+  fill: #fff;
+}
+
+.logo__text {
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 700;
+  vertical-align: bottom;
+}
+
+.thumbnail__content {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  color: white;
+}
+
+.heading--primary {
+  font-size: 1.999rem;
+}
+
+.heading--secondary {
+  font-size: 1.414rem;
+}
+
+.thumbnail__links {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  width: 100%;
+}
+
+.thumbnail__links a {
+  font-size: 1rem;
+  color: #fff;
+}
+.thumbnail__links a:focus, .thumbnail__links a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.signup__form {
+    padding: 2.5rem;
+    background: #d0e0ef;
+}
+
+label {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #3e4042;
+}
+
+.form-control {
+  background-color: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  width: 100%;
+}
+.form-control:focus {
+  border-color: #111;
+}
+
+[type="text"] {
+  color: #111;
+}
+
+#password, #password-confirm {
+  color: #111;
+}
+
+.btn--form {
+  padding: .5rem 2.5rem;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background: #111;
+  border-radius: 2.1875rem;
+}
+.btn--form:focus, .btn--form:hover {
+    background: #323232;
+    color: #fff;
+}
+
+.signup__link {
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #999;
+}
+.signup__link:focus, .signup__link:hover {
+    color: #fff;
+}
+#username, #password, #password-confirm {
+    border: 1px solid #9ca6b7;
+    width: 100%;
+    color: #89919e;
+}
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btn-upload {
+    border: 2px solid #4e646d;
+    color: #4e646d;
+    background-color: #92bacc;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}

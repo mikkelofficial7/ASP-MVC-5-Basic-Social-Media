@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASPMVCDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Friend">
+    <Key>
+      <PropertyRef Name="IdPertemanan" />
+    </Key>
+    <Property Name="IdPertemanan" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="IdAkun" Type="nvarchar" MaxLength="150" />
+    <Property Name="IdTeman" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Like">
+    <Key>
+      <PropertyRef Name="IdLike" />
+    </Key>
+    <Property Name="IdLike" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdPesan" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Pesan">
+    <Key>
+      <PropertyRef Name="IdPesan" />
+    </Key>
+    <Property Name="IdPesan" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Id" Type="nvarchar" MaxLength="150" />
+    <Property Name="IsiPesan" Type="nvarchar" MaxLength="150" />
+    <Property Name="TanggalKirim" Type="datetime" />
+    <Property Name="Positive" Type="nvarchar" MaxLength="14" />
+    <Property Name="Negative" Type="nvarchar" MaxLength="14" />
+    <Property Name="Status" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="150" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="ConfirmPassword" Type="nvarchar(max)" />
+    <Property Name="Telepon" Type="nvarchar" MaxLength="15" />
+    <Property Name="IsActive" Type="nchar" MaxLength="2" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="100" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="100" />
+    <Property Name="Photo" Type="nvarchar(max)" />
+    <Property Name="VerifyActivationCode" Type="nvarchar(max)" />
+    <Property Name="UserActivationCode" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="300" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="6" />
+    <Property Name="ThemeLink" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityContainer Name="ASPMVCDBModelStoreContainer">
+    <EntitySet Name="Friend" EntityType="Self.Friend" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Like" EntityType="Self.Like" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pesan" EntityType="Self.Pesan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ASPMVCDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Friend">
+          <Key>
+            <PropertyRef Name="IdPertemanan" />
+          </Key>
+          <Property Name="IdPertemanan" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="IdAkun" Type="nvarchar" MaxLength="150" />
+          <Property Name="IdTeman" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Like">
+          <Key>
+            <PropertyRef Name="IdLike" />
+          </Key>
+          <Property Name="IdLike" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdPesan" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdUser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Pesan">
+          <Key>
+            <PropertyRef Name="IdPesan" />
+          </Key>
+          <Property Name="IdPesan" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="150" />
+          <Property Name="IsiPesan" Type="nvarchar" MaxLength="150" />
+          <Property Name="TanggalKirim" Type="datetime" />
+          <Property Name="Positive" Type="nvarchar" MaxLength="14" />
+          <Property Name="Negative" Type="nvarchar" MaxLength="14" />
+          <Property Name="Status" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="150" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="ConfirmPassword" Type="nvarchar(max)" />
+          <Property Name="Telepon" Type="nvarchar" MaxLength="15" />
+          <Property Name="IsActive" Type="nchar" MaxLength="2" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Photo" Type="nvarchar(max)" />
+          <Property Name="VerifyActivationCode" Type="nvarchar(max)" />
+          <Property Name="UserActivationCode" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="300" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="6" />
+          <Property Name="ThemeLink" Type="nvarchar" MaxLength="400" />
+        </EntityType>
+        <EntityContainer Name="ASPMVCDBModelStoreContainer">
+          <EntitySet Name="Friend" EntityType="Self.Friend" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Like" EntityType="Self.Like" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pesan" EntityType="Self.Pesan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ASPMVCDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Friend">
+          <Key>
+            <PropertyRef Name="IdPertemanan" />
+          </Key>
+          <Property Name="IdPertemanan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdAkun" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IdTeman" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Like">
+          <Key>
+            <PropertyRef Name="IdLike" />
+          </Key>
+          <Property Name="IdLike" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdPesan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Pesan">
+          <Key>
+            <PropertyRef Name="IdPesan" />
+          </Key>
+          <Property Name="IdPesan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsiPesan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TanggalKirim" Type="DateTime" Precision="3" />
+          <Property Name="Positive" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="Negative" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Registration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telepon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VerifyActivationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserActivationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="ThemeLink" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ASPMVCDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Friend" EntityType="Self.Friend" />
+          <EntitySet Name="Like" EntityType="Self.Like" />
+          <EntitySet Name="Pesan" EntityType="Self.Pesan" />
+          <EntitySet Name="Registration" EntityType="Self.Registration" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ASPMVCDBModelStoreContainer" CdmEntityContainer="ASPMVCDB">
+          <EntitySetMapping Name="Friend">
+            <EntityTypeMapping TypeName="ASPMVCDBModel.Friend">
+              <MappingFragment StoreEntitySet="Friend">
+                <ScalarProperty Name="IdPertemanan" ColumnName="IdPertemanan" />
+                <ScalarProperty Name="IdAkun" ColumnName="IdAkun" />
+                <ScalarProperty Name="IdTeman" ColumnName="IdTeman" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Like">
+            <EntityTypeMapping TypeName="ASPMVCDBModel.Like">
+              <MappingFragment StoreEntitySet="Like">
+                <ScalarProperty Name="IdLike" ColumnName="IdLike" />
+                <ScalarProperty Name="IdPesan" ColumnName="IdPesan" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pesan">
+            <EntityTypeMapping TypeName="ASPMVCDBModel.Pesan">
+              <MappingFragment StoreEntitySet="Pesan">
+                <ScalarProperty Name="IdPesan" ColumnName="IdPesan" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsiPesan" ColumnName="IsiPesan" />
+                <ScalarProperty Name="TanggalKirim" ColumnName="TanggalKirim" />
+                <ScalarProperty Name="Positive" ColumnName="Positive" />
+                <ScalarProperty Name="Negative" ColumnName="Negative" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registration">
+            <EntityTypeMapping TypeName="ASPMVCDBModel.Registration">
+              <MappingFragment StoreEntitySet="Registration">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+                <ScalarProperty Name="Telepon" ColumnName="Telepon" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="VerifyActivationCode" ColumnName="VerifyActivationCode" />
+                <ScalarProperty Name="UserActivationCode" ColumnName="UserActivationCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ThemeLink" ColumnName="ThemeLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

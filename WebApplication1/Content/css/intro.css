@@ -1,0 +1,95 @@
+﻿.wrapper {
+    text-align: center;
+}
+h1 {
+    position: relative;
+    top: 200px;
+    font-family: "Open Sans", "Roboto", arial, sans-serif;
+    padding: 10px;
+    color: #9b9ca5;
+}
+h3 {
+    position: relative;
+    top: 200px;
+    font-family: "Open Sans", "Roboto", arial, sans-serif;
+    padding: 10px;
+    color: #9b9ca5;
+}
+#login-btn {
+    position: relative;
+    top: 200px;
+    text-decoration: none;
+    background-color: #b3b7ce;
+    color: #5e5f72;
+    font-family: "Open Sans", "Roboto", arial, sans-serif;
+    padding: 20px;
+}
+#login-btn {
+    -webkit-transition: all 0.90s ease-in-out;
+    -moz-transition: all 0.90s ease-in-out;
+    -ms-transition: all 0.90s ease-in-out;
+    -o-transition: all 0.90s ease-in-out;
+}
+#login-btn:hover {
+    position: relative;
+    top: 200px;
+    text-decoration: none;
+    background-color: #b3b7ce;
+    color: #5e5f72;
+    font-size: 20px;
+    font-family: "Open Sans", "Roboto", arial, sans-serif;
+    padding: 20px;
+}
+.bg-body-images:before {
+    content: ' ';
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-image: url('../img-logo/main-cover.jpg');
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.9;
+}
+@media screen and (max-width: 1286px) {
+    .bg-body-images:before {
+        background-image: url('../img-logo/main-cover-small.jpg');
+        background-repeat: round;
+    }
+}
+#company-profile-term, #company-profile-about, #company-profile-privacy {
+    position: relative;
+    top: 300px;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-family: "Open Sans", "Roboto", arial, sans-serif;
+    padding: 10px;
+    font-size: 80%;
+    font-size: 12px;
+}
+#company-profile-term:hover, #company-profile-about:hover, #company-profile-privacy:hover {
+    position: relative;
+    top: 300px;
+    border: none;
+    font-weight: 700;
+    background-color: transparent;
+    color: #878787;
+    font-family: "Open Sans", "Roboto", arial, sans-serif;
+    padding: 10px;
+    font-size: 80%;
+    font-size: 12px;
+}
+#contact {
+    font-family: "Open Sans", "Roboto", arial, sans-serif;
+    text-decoration: none;
+    color: #585e68;
+}
+#contact:hover {
+    font-family: "Open Sans", "Roboto", arial, sans-serif;
+    color: #000;
+}

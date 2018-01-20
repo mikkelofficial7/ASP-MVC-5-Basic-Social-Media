@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/Content/css/popup.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="icon" href="~/Content/img-logo/Untitled.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - HideID</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top headernav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(" ", "Main", "Home", new { area = "" }, new { @class = "logo-nav navbar-brand linavbar" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="linavbar">@Html.RouteLink("Home", "Main")</li>
+                    <li class="linavbar">@Html.RouteLink("Profile", "Profile")</li>
+                    <li class="linavbar">@Html.RouteLink("User List", "ListOfFriend")</li>
+                    <li class="linavbar dropdown">
+                        <a class="alert dropbtn" onclick="myFunction()">🕭 Notification</a>
+                        <div id="myDropdown" class="dropdown-content">
+                            <span class="words">You Have <span class="badge"></span> <b>Bad Contents</b></span>
+                        </div>
+                    </li>
+                    <li class="linavbar">@Html.RouteLink("Logout", "Logout")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>Copyright &copy; @DateTime.Now.Year Hide ID</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            setInterval(function () {
+                $.ajax({
+                    url: '/Home/Notif',
+                    type: 'POST',
+                    success: function (res) {
+                        if (res != "0")
+                        {
+                            $(".alert").css('color', 'red');
+                            $(".alert").css('-webkit-animation', 'all 0.90s ease-in-out');
+                            $(".alert").css('-moz-transition', 'all 0.90s ease-in-out');
+                            $(".alert").css('-ms-transition', 'all 0.90s ease-in-out');
+                            $(".alert").css('-o-transition', 'all 0.90s ease-in-out');
+                            $(".badge").html(res);
+                        }
+                        else
+                        {
+                            $(".alert").css('color', '#999999');
+                            $(".badge").html(res);
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }, 800);
+            $(".alert").hover(function () {
+                $(this).css("color", "#fff");
+            }, function () {
+                $(this).css("color", "#999999");
+            });
+        });
+        /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

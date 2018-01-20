@@ -1,0 +1,231 @@
+﻿@{
+    ViewBag.Title = "Friend Profile";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/myScroll.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="~/Content/css/profile.css" />
+    <link rel="stylesheet" href="~/Content/css/modal-friend.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Friend Profile</title>
+</head>
+<body id="body-profile">
+    <div class="container">
+        <div class="col-md-10">
+            <div class="row">
+                <h1></h1>
+                <!-- code start -->
+                <div class="twPc-divs">
+                    <a class="twPc-bg twPc-block"></a>
+                    <div class="profil">
+                        <span title="@ViewBag.Username" class="twPc-avatarLink">
+                            <img alt="@ViewBag.Username" src="@Url.Content(@ViewBag.Photo)" class="twPc-avatarImg" />
+                        </span>
+                        <div class="twPc-divUser">
+                            <div class="twPc-divName">
+                                @ViewBag.Nama
+                            </div>
+                            <span>
+                                &#64;<span>@ViewBag.Username</span>
+                            </span>
+                        </div>
+                        <div class="twPc-divStats">
+                            <ul class="twPc-Arrange">
+                                <li class="twPc-ArrangeSizeFit">
+                                    <a class="numbtweets" title="@ViewBag.Tweet Tweet">
+                                        <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                        <span class="twPc-StatValue" id="friendtweet"></span>
+                                    </a>
+                                </li>
+                                <li class="twPc-ArrangeSizeFit">
+                                    <a href="@Url.RouteUrl("F-Following", new { id = @ViewBag.IdTeman })" title="@ViewBag.Following Following">
+                                        <span class="twPc-StatLabel twPc-block">Followings</span>
+                                        <span class="twPc-StatValue" id="friendfollowing"></span>
+                                    </a>
+                                </li>
+                                <li class="twPc-ArrangeSizeFit">
+                                    <a href="@Url.RouteUrl("F-Follower", new { id = @ViewBag.IdTeman })" title="@ViewBag.Follower Followers">
+                                        <span class="twPc-StatLabel twPc-block">Followers</span>
+                                        <span class="twPc-StatValue" id="friendfollower"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- code end -->
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="row">
+                <h1></h1>
+                <div class="profile-button">
+                    @if (ViewBag.numbId == 0)
+                    {
+                        <a href="@Url.RouteUrl("AddFriend", new { Id = @ViewBag.Id })">
+                            <button type="submit" class="btn-profile2 btn info addfriend">+<i class="fa fa-user" aria-hidden="true"></i> Add Friend</button>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.RouteUrl("RemoveFriend", new { Id = @ViewBag.Id })">
+                            <button type="submit" class="btn-profile2 btn info removefriend"><i class="fa fa-times" aria-hidden="true"></i> Remove Friend</button>
+                        </a>
+                    }
+                    <button class="btn-profile2 btn info showprofile" id="showprofile"><i class="fa fa-user" aria-hidden="true"></i> Show Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="twPc-div" id="isitweet">
+                    @if (ViewBag.Tweet == "0")
+                    {
+                        <div class="twpc-Tweet">
+                            <span class="Tweet-Content">No Tweet Here</span>
+                        </div>
+                    }
+                    else
+                    {
+                        @*var i = 0;
+                        var cnt = 0;
+                        var cny = 0;
+                        foreach (var tweet in ViewBag.TweetContain)
+                        {
+                            if (Convert.ToInt32(tweet.Negative) > Convert.ToInt32(tweet.Positive))
+                            {
+                                <div class="twpc-Tweet" id="negative-tweet">
+                                    <span class="Tweet-Content">@tweet.IsiPesan</span>
+                                    <br />
+                                    <span class="tweet-date">
+                                        Tweet from @tweet.TanggalKirim
+                                    </span>
+                                    <span id="positive-val"><i class="fa fa-check"></i> @tweet.Positive%</span>
+                                    <span id="negative-val"><i class="fa fa-times"></i> @tweet.Negative% WARNING!</span>
+                                    <br />
+                                    <a href="@Url.RouteUrl("UnlikeTweet", new { Id = @tweet.IdPesan, IdTeman = @ViewBag.IdTeman })" class="dislike" id="dislike"></a>
+                                    <a href="@Url.RouteUrl("LikeTweet", new { Id = @tweet.IdPesan, IdTeman = @ViewBag.IdTeman })" class="likes" id="likes"></a>
+                                    @foreach (var likeother in ViewBag.likeother)
+                                    {
+                                        if (likeother.IdPesan == tweet.IdPesan && likeother.IdUser == Session["UserID"].ToString())
+                                        {
+                                            cnt += 1;
+                                        }
+                                        else if (likeother.IdPesan == tweet.IdPesan && likeother.IdUser != Session["UserID"].ToString())
+                                        {
+                                            cny += 1;
+                                        }
+                                    }
+                                    @if (cnt == 1 && cny < 1)
+                                    {
+                                        <span class="like-status">You Like Status</span>
+                                    }
+                                    else if (cnt > 0 && cny > 0)
+                                    {
+                                        <span class="like-status">@cny People and You Like Status</span>
+                                    }
+                                    else if (cnt < 1 && cny > 0)
+                                    {
+                                        <span class="like-status">@cny People Like Status</span>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                    <div class="twpc-Tweet">
+                                    <span class="Tweet-Content">@tweet.IsiPesan</span>
+                                    <br />
+                                    <span class="tweet-date">
+                                        Tweet from @tweet.TanggalKirim
+                                    </span>
+                                    <span id="positive-val"><i class="fa fa-check"></i> @tweet.Positive%</span>
+                                    <span id="negative-val"><i class="fa fa-times"></i> @tweet.Negative%</span>
+                                    <br />
+                                    <a href="@Url.RouteUrl("UnlikeTweet", new { Id = @tweet.IdPesan, IdTeman = @ViewBag.IdTeman })" class="dislike" id="dislike"></a>
+                                    <a href="@Url.RouteUrl("LikeTweet", new { Id = @tweet.IdPesan, IdTeman = @ViewBag.IdTeman })" class="likes" id="likes"></a>
+                                    @foreach (var likeother in ViewBag.likeother)
+                                    {
+                                        if (likeother.IdPesan == tweet.IdPesan && likeother.IdUser == Session["UserID"].ToString())
+                                        {
+                                            cnt += 1;
+                                        }
+                                        else if (likeother.IdPesan == tweet.IdPesan && likeother.IdUser != Session["UserID"].ToString())
+                                        {
+                                            cny += 1;
+                                        }
+                                    }
+                                    @if (cnt == 1 && cny < 1)
+                                    {
+                                        <span class="like-status">You Like Status</span>
+                                    }
+                                    else if (cnt > 0 && cny > 0)
+                                    {
+                                        <span class="like-status">@cny People and You Like Status</span>
+                                    }
+                                    else if (cnt < 1 && cny > 0)
+                                    {
+                                        <span class="like-status">@cny People Like Status</span>
+                                    }
+                                </div>
+                            }
+                            i += 1;
+                            cnt = 0;
+                            cny = 0;
+                        }*@
+                        <div class="twpc-Tweet">
+                            <span class="Tweet-Content">These tweets are hidden so you can't see these tweets</span>
+                        </div>
+                    }
+                </div>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h3>@ViewBag.Nama's Profile</h3>
+                        <p><i class="fa fa-user" aria-hidden="true"></i> @ViewBag.Nama</p>
+                        <p><i class="fa fa-at" aria-hidden="true"></i> @ViewBag.Username</p>
+                        <a href="mailto:@ViewBag.Email" target="_top"><i class="fa fa-envelope" aria-hidden="true"></i> @ViewBag.Email</a>
+                        <a href="tel:@ViewBag.Telp"><i class="fa fa-phone-square" aria-hidden="true"></i> @ViewBag.Telp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <script type="text/javascript" src="~/Scripts/lazyload.js"></script>
+    <script type="text/javascript" src="~/Scripts/modal-friend.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setInterval(function () {
+                $.ajax({
+                    url: '/Home/Test',
+                    type: 'POST',
+                    dataType: "json",
+                    data: { 'id': '@ViewBag.IdTeman' },
+                    success: function (html) {
+                        var data = JSON.parse(html.tweet);
+                        var folA = JSON.parse(html.following);
+                        var folB = JSON.parse(html.follower);
+                        $("#friendtweet").html(data.length);
+                        $("#friendfollowing").html(folA);
+                        $("#friendfollower").html(folB);
+                    },
+                    error: function (error) {
+                        DisplayError(error.statusText);
+                    }
+                });
+            }, 300);
+            $(".twPc-bg").css("background-image", "url('@Url.Content(@ViewBag.Theme)')");
+        });
+    </script>
+</body>
+</html>

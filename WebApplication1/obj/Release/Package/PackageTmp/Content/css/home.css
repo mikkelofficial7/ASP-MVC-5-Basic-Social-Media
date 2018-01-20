@@ -1,0 +1,108 @@
+﻿#body-home {
+    background-color: #7d8389;
+}
+#tweet-text {
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 5px;
+    border-color: #d0d3d8;
+    -webkit-transition: all 0.90s ease-in-out;
+    -moz-transition: all 0.90s ease-in-out;
+    -ms-transition: all 0.90s ease-in-out;
+    -o-transition: all 0.90s ease-in-out;
+}
+#tweet-text:focus {
+    background-color: #edeff2;
+    border-color: #a9b9d3;
+}
+@media screen and (max-width: 600px) {
+    #tweet-text {
+        font-size:14px;
+    }
+}
+#val {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-family: Comic Sans MS;
+}
+#a
+{
+    border-style:none;
+}
+#send-tweet {
+    margin-top: 5px;
+    width: 100px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-radius: 5px;
+    -webkit-transition: all 0.90s;
+    -moz-transition: all 0.90s;
+    -ms-transition: all 0.90s;
+    -o-transition: all 0.90s;
+}
+#send-tweet:hover {
+    margin-top: 5px;
+    width: 110px;
+    height: 50px;
+    color: #fff;
+    background-color: #1f242d;
+    border: none;
+    border-radius: 5px;
+}
+#notif-tweet-load {
+    background-color: #3a4556;
+    border-style: none;
+}
+#btn-notif-tweet-load {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+#btn-notif-tweet-load:hover {
+    color: white;
+    font-size: 16px;
+    font-weight:700;
+}
+#list-like
+{
+    margin-top:10px;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-radius: 100%;
+    border-top: 5px solid #111316;
+    border-bottom: 5px solid #111316;
+    width: 20px;
+    height: 20px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin-left: 200px;
+    z-index: 1;
+    margin-top: -30px;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

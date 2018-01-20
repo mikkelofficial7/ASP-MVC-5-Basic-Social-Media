@@ -1,0 +1,188 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <link rel="stylesheet" href="~/Content/css/profile.css" />
+    <script src="~/Scripts/myScroll.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Profile</title>
+</head>
+<body id="body-profile">
+    <div class="container">
+        <div class="col-md-10">
+            <div class="row">
+                <h1></h1>
+                <!-- code start -->
+                <div class="twPc-divs">
+                    <a class="twPc-bg twPc-block"></a>
+                    <div class="profil">
+                        <span title="@ViewBag.Username" class="twPc-avatarLink">
+                            <img alt="@ViewBag.Username" src="@Url.Content(@ViewBag.Photo)" class="twPc-avatarImg" />
+                        </span>
+                        <div class="twPc-divUser">
+                            <div class="twPc-divName">
+                                @ViewBag.Nama
+                            </div>
+                            <span>
+                                &#64;<span>@ViewBag.Username</span>
+                            </span>
+                        </div>
+                        <div class="twPc-divStats">
+                            <ul class="twPc-Arrange">
+                                <li class="twPc-ArrangeSizeFit">
+                                    <a class="numbtweets" title="@ViewBag.Tweet Tweet">
+                                        <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                        <span class="twPc-StatValue">@ViewBag.Tweet</span>
+                                    </a>
+                                </li>
+                                <li class="twPc-ArrangeSizeFit">
+                                    <a href="@Url.RouteUrl("Following")" title="@ViewBag.Following Following">
+                                        <span class="twPc-StatLabel twPc-block">Followings</span>
+                                        <span class="twPc-StatValue">@ViewBag.Following</span>
+                                    </a>
+                                </li>
+                                <li class="twPc-ArrangeSizeFit">
+                                    <a href="@Url.RouteUrl("Follower")" title="@ViewBag.Follower Followers">
+                                        <span class="twPc-StatLabel twPc-block">Followers</span>
+                                        <span class="twPc-StatValue" id="follower"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- code end -->
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="row">
+                <h1></h1>
+                <div class="profile-button">
+                    <a href="@Url.RouteUrl("EditProfile")"><button class="btn-profile1 btn info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile</button></a>
+                    <form action="@Url.RouteUrl("DeletePhoto")" method="post">
+                        <button type="submit" class="btn-profile22 btn info"><i class="fa fa-times" aria-hidden="true"></i> Delete Photo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="twPc-div">
+                    @if (ViewBag.Tweet == "0")
+                    {
+                        <div class="twpc-Tweet">
+                            <span class="Tweet-Content">No Tweet Here</span>
+                        </div>
+                    }
+                    else
+                    {
+                        var i = 0;
+                        var cnt = 0;
+                        foreach (var tweet in ViewBag.TweetContain)
+                        {
+                            if (Convert.ToInt32(tweet.Negative) > Convert.ToInt32(tweet.Positive))
+                            {
+                                <div class="twpc-Tweet" id="negative-tweet">
+                                    <a href="@Url.RouteUrl("DeleteTweet", new { Id = @tweet.IdPesan })" class="boxclose" id="boxclose"></a>
+                                    <span class="Tweet-Content">@tweet.IsiPesan</span>
+                                    <br />
+                                    <span class="tweet-date">
+                                        Tweet from @tweet.TanggalKirim
+                                    </span>
+                                    <span id="positive-val"><i class="fa fa-check"></i> @tweet.Positive%</span>
+                                    <span id="negative-val"><i class="fa fa-times"></i> @tweet.Negative% WARNING! BAD CONTENT</span>
+                                    @foreach (var like in ViewBag.like)
+                                    {
+                                        if (tweet.IdPesan == like.IdPesan)
+                                        {
+                                            cnt += 1;
+                                        }
+                                    }
+                                    @if (cnt > 0)
+                                    {
+                                        <span class="like-status">@cnt Likes Your Status</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="like-status"></span>
+                                    }
+                                </div>
+                                i += 1;
+                                cnt = 0;
+                            }
+                            else
+                            {
+                                <div class="twpc-Tweet" @*id="load"*@>
+                                <a href="@Url.RouteUrl("DeleteTweet", new { Id = @tweet.IdPesan })" class="boxclose" id="boxclose"></a>
+                                <span class="Tweet-Content">@tweet.IsiPesan</span>
+                                <br />
+                                <span class="tweet-date">
+                                    Tweet from @tweet.TanggalKirim
+                                </span>
+                                <span id="positive-val"><i class="fa fa-check"></i> @tweet.Positive%</span>
+                                <span id="negative-val"><i class="fa fa-times"></i> @tweet.Negative%</span>
+                                @foreach (var like in ViewBag.like)
+                                {
+                                    if (tweet.IdPesan == like.IdPesan)
+                                    {
+                                        cnt += 1;
+                                    }
+                                }
+                                @if (cnt > 0)
+                                {
+                                    <span class="like-status">@cnt Likes Your Status</span>
+                                }
+                                else
+                                {
+                                    <span class="like-status"></span>
+                                }
+                                </div>
+                                i += 1;
+                                cnt = 0;
+                            }
+                        }
+                        @*if (i > 5)
+                        {
+                            <a href="#" id="loadMore">Load More</a>
+                        }
+                        else if (i <= 5)
+                        {
+                            <a href="#" id="loadMore" style="display:none;">Load More</a>
+                        }*@
+                    }  
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <script type="text/javascript" src="~/Scripts/lazyload.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setInterval(function () {
+                $.ajax({
+                    url: '/Home/ProfileFollower',
+                    type: 'POST',
+                    dataType: "json",
+                    success: function (html) {
+                        var follower = JSON.parse(html.follower);
+                        $("#follower").html(follower);
+                    },
+                    error: function (error) {
+                        DisplayError(error.statusText);
+                    }
+                });
+            },300);
+        });
+    </script>
+</body>
+</html>

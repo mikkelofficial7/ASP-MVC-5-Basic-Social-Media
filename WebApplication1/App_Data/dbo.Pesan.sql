@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Pesan]
+(
+	[Id] NVARCHAR(150) NOT NULL PRIMARY KEY, 
+    [IsiPesan] NVARCHAR(MAX) NULL, 
+    [TanggalKirim] TIMESTAMP NULL
+)

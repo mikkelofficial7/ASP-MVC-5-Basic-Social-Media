@@ -1,0 +1,86 @@
+﻿@model WebApplication1.Models.Registration
+@{
+    Layout = null;
+    ViewBag.Title = "Register";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" name="viewport" content="initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/modal.css">
+    <link rel="icon" href="~/Content/img-logo/Untitled.ico">
+</head>
+<body class="bg-body-image">
+    <section class="container">
+        <div class="login">
+            <h1>Register now</h1>
+            @if (ViewBag.Message != null)
+            {
+                <div class="col-md-12"style="color : @ViewBag.Color;">
+                    <div class="alert alert-danger">
+                        @ViewBag.Message
+                    </div>
+                </div>
+            }
+            <p id="notif-error" class="notif-error"></p>
+            <br/>
+            <form method="post" action="@Url.Action("Register", "Main")">
+                <p id="p">@Html.TextBoxFor(model => model.Firstname, new { @class = "nama1", @id = "nama1", @placeholder = "Firstname", required = "required", value = "" })@Html.TextBoxFor(model => model.Lastname, new { @class = "nama2", @placeholder = "Lastname", required = "required" })</p>
+                <p><span id="checkbox">@Html.RadioButtonFor(model => model.Gender, "Male", new { @class = "form-control", name = "gender", @checked = "checked" }) Male @Html.RadioButtonFor(model => model.Gender, "Female", new { @class = "form-control", name = "gender" }) Female</span></p>
+                <p>@Html.TextBoxFor(model => model.Username, new { @class = "form-control regis",  @placeholder = "Username", required = "required" })</p>
+                <p>@Html.TextBoxFor(model => model.Password, new { @class = "form-control", @id="password", @placeholder = "Password", required = "required", @type = "password" })</p>
+                <p>@Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control", @id = "password-confirm", @placeholder = "Confirm Password", required = "required", @type = "password" })</p>
+                <p>@Html.TextBoxFor(model => model.Email, new { @class = "form-control",  @placeholder = "Example@example.com", required = "required", @type = "email" })</p>
+                <p>@Html.TextBoxFor(model => model.Telepon, new { @maxlength = "15", @class = "form-control regis",  @placeholder = "e.g 083871979961", required = "required" })</p>
+                <span id="aa">I Agree With</span><button type="button" name="terms" id="myBtn" value="terms">Terms and Services</button>
+                <p class="submit"><span id="match"></span> &nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value="Register"></p>
+            </form>
+        </div>
+        <div class="login-help">
+            <p>Already have an account? <a href="@Url.Action("Login", "Main")">Login now</a>.</p>
+        </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Terms and Services</h1>
+                <p>
+                    <br/>Who May Use This<br/>
+                    You may use the Services only if you agree to form a binding 
+                    contract with HideID and are not a person barred from receiving services under 
+                    the laws of the applicable jurisdiction. In any case, you must be at least 15 
+                    years old to use the Services. If you are accepting these Terms and using the 
+                    Services on behalf of a company, organization, government, or other legal entity, 
+                    you represent and warrant that you are authorized to do so.<br/><br/>
+                    Content Of Services<br/>
+                    You are responsible for your use of the Services and for any Content you provide, 
+                    including compliance with applicable laws, rules, and regulations. You should only 
+                    provide Content that you are comfortable sharing with others.
+                    Any use or reliance on any Content or materials posted via the Services 
+                    or obtained by you through the Services is at your own risk. We do not endorse, 
+                    support, represent or guarantee the completeness, truthfulness, accuracy,
+                    or reliability of any Content or communications posted via the Services or 
+                    endorse any opinions expressed via the Services. You understand that by using 
+                    the Services, you may be exposed to Content that might be offensive, harmful, 
+                    inaccurate or otherwise inappropriate, or in some cases, postings that have been 
+                    mislabeled or are otherwise deceptive. All Content is the sole responsibility of 
+                    the person who originated such Content. We may not monitor or control the Content 
+                    posted via the Services and, we cannot take responsibility for such Content.<br/><br/>
+                    Regards,<br/>
+                    HideID Management Support.
+                </p>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/showPass.js"></script>
+        <script type="text/javascript" src="~/Scripts/modal.js"></script>
+    </section>
+</body>
+</html>

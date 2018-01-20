@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - HideID</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top headernav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("HideID", "Main", "Home", new { area = "" }, new { @class = "navbar-brand linavbar" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="linavbar">@Html.RouteLink("Home", "Main")</li>
+                    <li class="linavbar">@Html.RouteLink("Profile", "Profile")</li>
+                    <li class="linavbar">@Html.RouteLink("User List", "ListOfFriend")</li>
+                    <li class="linavbar"><a class="alert">🕭 Notification <span class="badge"></span></a></li>
+                    <li class="linavbar">@Html.RouteLink("Logout", "Logout")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Hide ID</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            setInterval(function () {
+                $.ajax({
+                    url: '/Home/Notif',
+                    type: 'POST',
+                    success: function (res) {
+                        if (res != "0")
+                        {
+                            $(".alert").css('color', 'red');
+                            $(".alert").css('-webkit-animation', 'all 0.90s ease-in-out');
+                            $(".alert").css('-moz-transition', 'all 0.90s ease-in-out');
+                            $(".alert").css('-ms-transition', 'all 0.90s ease-in-out');
+                            $(".alert").css('-o-transition', 'all 0.90s ease-in-out');
+                            $(".badge").html(res);
+                        }
+                        else
+                        {
+                            $(".alert").css('color', '#999999');
+                            $(".badge").html(res);
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }, 500);
+        });
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

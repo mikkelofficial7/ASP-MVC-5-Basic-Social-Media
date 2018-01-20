@@ -1,0 +1,56 @@
+﻿.wrapper {
+    text-align: center;
+}
+h1 {
+    position: relative;
+    top: 200px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px;
+    color: #9b9ca5;
+}
+h3 {
+    position: relative;
+    top: 200px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px;
+    color: #9b9ca5;
+}
+a {
+    position: relative;
+    top: 200px;
+    text-decoration: none;
+    background-color: #b3b7ce;
+    color: #5e5f72;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 20px;
+}
+a {
+    -webkit-transition: all 0.90s ease-in-out;
+    -moz-transition: all 0.90s ease-in-out;
+    -ms-transition: all 0.90s ease-in-out;
+    -o-transition: all 0.90s ease-in-out;
+}
+a:hover{
+    position: relative;
+    top: 200px;
+    text-decoration: none;
+    background-color: #b3b7ce;
+    color: #5e5f72;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 20px;
+}
+.bg-body-images:before {
+    content: ' ';
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-image: url('../img-logo/borobudur.jpg');
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+}

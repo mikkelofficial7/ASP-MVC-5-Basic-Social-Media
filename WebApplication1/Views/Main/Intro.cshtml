@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Welcome To HideID";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/css/intro.css">
+    <link rel="stylesheet" href="~/Content/css/modal-intro.css">
+    <link rel="icon" href="~/Content/img-logo/Untitled.ico">
+    <title>@ViewBag.Title</title>
+</head>
+<body class="bg-body-images">
+    <div class="wrapper"> 
+        <h1>HideID</h1>
+        <h3>"Share Your Positive Mind"</h3>
+        <a id="login-btn" href="@Url.RouteUrl("Login")">Login now and share your moment</a>
+        <br />
+        <button id="company-profile-about">About Us</button>
+        <button id="company-profile-privacy">Privacy and Policy</button>
+        <button id="company-profile-term">Term and Services</button>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="val"></p>
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Scripts/modal-intro.js"></script>
+</body>
+</html>

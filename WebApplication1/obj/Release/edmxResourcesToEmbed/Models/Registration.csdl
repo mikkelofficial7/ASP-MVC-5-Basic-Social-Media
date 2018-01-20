@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASPMVCDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Friend">
+    <Key>
+      <PropertyRef Name="IdPertemanan" />
+    </Key>
+    <Property Name="IdPertemanan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdAkun" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IdTeman" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Like">
+    <Key>
+      <PropertyRef Name="IdLike" />
+    </Key>
+    <Property Name="IdLike" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdPesan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Pesan">
+    <Key>
+      <PropertyRef Name="IdPesan" />
+    </Key>
+    <Property Name="IdPesan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsiPesan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TanggalKirim" Type="DateTime" Precision="3" />
+    <Property Name="Positive" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Negative" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Telepon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+    <Property Name="Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VerifyActivationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserActivationCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="ASPMVCDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Friend" EntityType="Self.Friend" />
+    <EntitySet Name="Like" EntityType="Self.Like" />
+    <EntitySet Name="Pesan" EntityType="Self.Pesan" />
+    <EntitySet Name="Registration" EntityType="Self.Registration" />
+  </EntityContainer>
+</Schema>

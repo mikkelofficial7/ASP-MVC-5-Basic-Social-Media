@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ASPMVCDBModelStoreContainer" CdmEntityContainer="ASPMVCDB">
+    <EntitySetMapping Name="Friend">
+      <EntityTypeMapping TypeName="ASPMVCDBModel.Friend">
+        <MappingFragment StoreEntitySet="Friend">
+          <ScalarProperty Name="IdPertemanan" ColumnName="IdPertemanan" />
+          <ScalarProperty Name="IdAkun" ColumnName="IdAkun" />
+          <ScalarProperty Name="IdTeman" ColumnName="IdTeman" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Like">
+      <EntityTypeMapping TypeName="ASPMVCDBModel.Like">
+        <MappingFragment StoreEntitySet="Like">
+          <ScalarProperty Name="IdLike" ColumnName="IdLike" />
+          <ScalarProperty Name="IdPesan" ColumnName="IdPesan" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pesan">
+      <EntityTypeMapping TypeName="ASPMVCDBModel.Pesan">
+        <MappingFragment StoreEntitySet="Pesan">
+          <ScalarProperty Name="IdPesan" ColumnName="IdPesan" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsiPesan" ColumnName="IsiPesan" />
+          <ScalarProperty Name="TanggalKirim" ColumnName="TanggalKirim" />
+          <ScalarProperty Name="Positive" ColumnName="Positive" />
+          <ScalarProperty Name="Negative" ColumnName="Negative" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registration">
+      <EntityTypeMapping TypeName="ASPMVCDBModel.Registration">
+        <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Telepon" ColumnName="Telepon" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="VerifyActivationCode" ColumnName="VerifyActivationCode" />
+          <ScalarProperty Name="UserActivationCode" ColumnName="UserActivationCode" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

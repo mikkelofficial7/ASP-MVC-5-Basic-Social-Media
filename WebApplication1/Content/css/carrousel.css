@@ -1,0 +1,41 @@
+﻿body {
+    background-color: #5c6472;
+    zoom:1.05;
+}
+.finish-btn {
+    float: right;
+    margin-right: 8px;
+    margin-top: 10px;
+    background-color: #000;
+    border: 5px solid #000;
+    border-radius: 5px;
+    color:white;
+}
+.finish-btn:hover {
+    float: right;
+    margin-right: 8px;
+    margin-top: 10px;
+    background-color: #303030;
+    border: 5px solid #303030;
+    border-radius: 5px;
+    color: white;
+}
+@media screen and (max-width:400px)
+{
+    .finish-btn {
+        float: right;
+        margin-right: 8px;
+        margin-left: 80px;
+        margin-top: 10px;
+        background-color: #000;
+        border: 5px solid #000;
+        border-radius: 5px;
+        color: white;
+        width: 95%;
+        text-align: center;
+    }
+}
+#myCarousel
+{
+   margin:10px;
+}

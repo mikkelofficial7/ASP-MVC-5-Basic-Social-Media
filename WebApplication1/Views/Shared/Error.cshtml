@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Error Not Found";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/css/error.css" />
+</head>
+<body>
+    <img src="~/Content/img-logo/error-logo.png"/>
+    <h1>Whoops..Your Page Is Not Found</h1>
+    <h3>This happens because you put the wrong keyword or access the page inappropriately</h3>
+    <i><a id="error-back" href="@Url.RouteUrl("Login")">Back to login page</a></i>
+    <i><a id="error-back" href="@Url.Action("Intro","Main")">Back to main page</a></i>
+</body>
+</html>

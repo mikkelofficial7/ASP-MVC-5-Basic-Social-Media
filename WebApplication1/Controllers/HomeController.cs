@@ -174,7 +174,7 @@ namespace WebApplication1.Controllers
             {
                 string type = "/Sentiment/";
                 string author = "/uClassify/";
-                string APIKEY = "classify/?readKey=SPPGqs1fXsQy&text=";
+                string APIKEY = "classify/?readKey=<UCLASSIFY_KEY>&text=";
                 string baseAPI = "https://api.uclassify.com/v1";
 
                 DateTime now = DateTime.Now;
